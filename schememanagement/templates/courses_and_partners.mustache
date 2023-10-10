@@ -1,0 +1,193 @@
+<style>
+#page-local-schememanagement-courses_and_partners .site-footer.bg-pink-600.grey-100{
+  display: none;
+}
+
+.select2-container {
+    z-index: 99999;
+}
+.d-flex.mob-d-block.itrack-explore-affordable .select2-container{
+  z-index: 0;
+}
+.edit-allocation .select2-container{
+  width: 200px !important;
+}
+</style>
+<div class="tabbable-responsive" style="margin: 5% auto 0%; width: 100%;">
+    <div class="tabbable">
+      <div class="col-md-12" style="margin: 0 auto; ">
+      {{#allocate}}
+        <div class="d-flex mob-d-block itrack-explore-affordable">
+           <!-- Sector Filter -->
+
+           <div class="col-sm-12 col-md-4">
+            <select class="dropdown-design" id="course_partner">
+             <option value="" disabled selected> Select course partner</option>
+                {{#coursepartner}}
+                    <option value="{{id}}"> {{partner_name}} </option>
+                {{/coursepartner}}
+            </select>
+          </div>
+
+           <!-- Bundle Filter -->
+           <div class="col-sm-12 col-md-4">
+                       <select class="dropdown-design" style="width:200px; color:#526069 !important;" id="course" name="course">
+          
+            </select>
+          </div>
+          <div class="col-sm-12 col-md-2">
+            <form>
+              <input type="text" id="batchsize" name="batchsize" placeholder="Enter Batch Size" value="" data-value="" required>
+              <span style="color:red;" id="batch-error">Batch Size:<span id="batch"></span></span><br>
+              <span style="color:red;" id="min-batch">Minimum Batch:<span id="minimum"></span></span>
+            </form>
+          </div>
+
+           <div class="col-sm-12 col-md-2">
+        
+           <button type="button" class="btn btn-success allocate" id="allocate">Allocate</button>
+         
+          </div>
+
+      </div>
+      {{/allocate}}
+      {{^allocate}}
+        <div class="d-flex mob-d-block itrack-explore-affordable">
+           <!-- Sector Filter -->
+
+           <div class="col-sm-12 col-md-4">
+            <select class="dropdown-design" id="course_partner" disabled>
+             <option value="" disabled selected> Select course partner</option>
+                {{#coursepartner}}
+                    <option value="{{id}}" > {{partner_name}} </option>
+                {{/coursepartner}}
+            </select>
+          </div>
+
+           <!-- Bundle Filter -->
+           <div class="col-sm-12 col-md-4">
+                       <select class="dropdown-design" style="width:200px; color:#526069 !important;" id="course" name="course" disabled>
+          
+            </select>
+          </div>
+          <div class="col-sm-12 col-md-2">
+            <form>
+              <input type="text" id="dbatchsize" name="batchsize" placeholder="Enter Batch Size" value="" data-value=""  disabled required>
+              <span style="color:red;" id="batch-error">Batch Size:<span id="batch"></span></span><br>
+              <span style="color:red;" id="min-batch">Minimum Batch:<span id="minimum"></span></span>
+            </form>
+          </div>
+
+           <div class="col-sm-12 col-md-2">
+        
+           <button type="button" class="btn btn-success allocate" id="dallocate" disabled>Allocate</button>
+         
+          </div>
+
+      </div>
+      {{/allocate}}
+    </div>
+  </div>
+
+  <!-- load course card here -->
+  <table class="table table-hover" id="coursepartner_table">
+              <tr>
+                <th style="text-align:center;"><b>SL No</b></th>
+                <th style=""><b>Partner Name</b></th>
+                <th style=""><b>Course Name</b></th>
+                 <th style=""><b>Batch Size</b></th>
+                <th style="text-align:center;"><b>Action</b></th>
+              </tr>
+            <tbody>
+            {{#record}}
+              <tr>
+              
+                <td style="width:5%; text-align:center;">{{counter}}</td>
+                <td style="width:8%;">{{partner_name}}</td>
+                <td style="width:10%;">{{fullname}}</td>
+                <td style="width:10%;">{{batch_size}}</td>
+                {{#allocate}}
+                <td style="width:8%; text-align:center;"><button type="button" data-toggle="modal" class="btn btn-primary edit" data-target="#edit_modal" style="margin-right: 20px;" value="" data-courseid="{{id}}" data-cpid="{{cpid}}" data-id="{{smid}}" data-cname="{{fullname}}">Edit</button>
+                <button type="button"  data-toggle="modal" class="btn btn-primary delete" data-target="#delete_modal" value="" data-courseid={{id}} data-cpid={{cpid}}>Delete</button></td>
+                {{/allocate}}
+                {{^allocate}}
+                <td style="width:8%; text-align:center;"><button type="button" data-toggle="modal" class="btn btn-primary edit" style="margin-right: 20px;" value="" disabled>Edit</button>
+                <button type="button"  data-toggle="modal" class="btn btn-primary delete" value=""  disabled>Delete</button></td>
+               
+                {{/allocate}}
+                </tr>
+                {{/record}}
+                {{^record}}
+             <tr><td colspan="6" style="text-align:center">NO RESULTS FOUND</td></tr>
+            {{/record}}
+            </tbody>
+            </table>
+                
+          <div class="modal fade" id="delete_modal" role="dialog">
+          <div class="modal-dialog">                
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Do you really want to delete?</h4>
+              </div>
+              <div class="modal-body">
+              <div id="response"></div>
+                <div class="form-group row otherType">
+                  <div class="col-sm-12 required">
+                    <form>
+                    <label for="deletefield">Enter reason to delete:</label><br>
+                    <input type="text" id="deletefield" onfocus="this.value=''" name="deletefield" required>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <input type="hidden" class="cpid" id="cpid" name="cpid" value="">
+                <input type="hidden" class="courseid" id="courseid" name="courseid" value="">
+                <button id="delete_course" class="btn btn-primary delete_course" name="submit">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>                  
+          </div>
+        </div>
+        <!-- Edit Modal-->
+
+          <div class="modal fade" id="edit_modal" role="dialog">
+            <div class="modal-dialog">                
+            <!-- Modal content-->
+            <div class="modal-content">
+              <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                <h4 class="modal-title">Edit Allocation</h4>
+              </div>
+              <div class="modal-body">
+                <div class="form-group row otherType">
+                  <div class="row required">
+                  <div class="col-sm-12 col-md-6 edit-allocation">
+                      <select class="" id="edit_course_partner">
+                     <option value="" disabled selected></option>
+                          {{#coursepartner}}
+                              <option value="{{id}}"> {{partner_name}} </option>
+                          {{/coursepartner}}
+                      </select>
+                      </div>
+                      <div class="col-sm-12 col-md-6 edit-allocation">
+                      <select class="dropdown-design" id="edit_course">
+                      </select>
+                      </div>
+                  </div>
+                </div>
+              </div>
+              <div class="modal-footer">
+                <input type="hidden" class="edit_cpid" id="edit_cpid" name="edit_cpid" value="" data-cpname="">
+                <input type="hidden" class="edit_courseid" id="edit_courseid" name="edit_courseid" value="">
+                <input type="hidden" class="smid" id="smid" name="smid" value="">
+                <button id="editcourse" class="btn btn-primary editcourse" name="submit">Submit</button>
+                <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+              </div>
+            </div>                  
+          </div>
+        </div>
+</div>
+

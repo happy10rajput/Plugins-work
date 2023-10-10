@@ -1,0 +1,200 @@
+<style>
+.course-card-body{
+  height: 280px;
+  overflow-y: auto;
+}
+.letters {
+    word-wrap: break-word;
+}
+.pgehilight, .fpgehilite, .lpgehilite {
+  color:#FF0000 !important;
+}
+</style>
+
+<div class="row course-section">
+{{#coursedata}}
+
+<div class="item col-lg-3 col-sm-12 col-md-6 animation-fade">
+  <div class="card">
+    
+    <div style="position:relative;">
+    
+      {{{courseimageurl}}}
+      <div class="course-level d-none">{{{courselevel}}}</div>
+      {{!<div class="top-right">
+        <i class="fa fa-bookmark-o" aria-hidden="true"></i>
+      </div>}}
+    </div>
+    <div class="card-body course-card-body">
+      <h4 class="card-title">
+        <!-- target="_blank" -->
+        <a
+          class="course-detail-title"
+          rel="noopener noreferrer"
+          href="{{{site_url}}}/local/schememanagement/product_details.php?id={{{productid}}}&schemeid={{{schemeid}}}"
+          data-toggle="tooltip"
+          title="{{{course_name}}}"
+        >
+          {{{course_name}}}
+        </a>
+      </h4>
+      <div>
+          <p class="letters">
+            {{{bundlesector}}}
+          </p>
+      </div>
+        <div class="d-flex justify-content-between">
+            <div>
+              <p class="college-name">
+                <span style="font-size: 12px;">from</span> {{{courseprovider}}}
+                <!--<span style="font-size: 12px;">from</span> {{{partnerreal}}}-->
+              </p>
+              <!--<div class="d-flex">
+                <div class="rating-icons">{{{userrating}}}</div>
+                <div class="rating-number">
+                  <span>{{{course_avg_rating}}} ({{{noof_ratings}}})</span>
+                </div>
+              </div> -->
+              <div class="advantage2">
+                <p>{{{course_duration}}}</p>
+              </div>
+            </div>
+
+            <div>
+              {{#certflag}}
+                <div>
+                  {{{certurl}}}
+                </div>
+              {{/certflag}}
+              {{^certflag}}
+                <div style="width:60px;">
+                  <img class="" style="max-width: 100%;max-height: 100%;" src="images/purple_default.png" />
+                </div>
+              {{/certflag}}
+            </div>
+        </div>
+        <div class="d-flex justify-content-between" >
+            <div>
+              <span>{{{old_price}}}</span>
+            </div>
+            {{!<span
+              ><i class="fa fa-shopping-cart course-cart" aria-hidden="true"></i
+            ></span>
+            <span> Add to Cart</span>}} {{{addtocartbtn}}}
+        </div>
+        <div class="d-flex justify-content-between" >
+          <div>
+          Schemename : {{schemename}}
+          </div>
+        </div>
+        <div class="d-flex justify-content-between" >
+          <div>
+          Scholarship : {{course_scholarship}}%
+          </div>
+        </div>
+        
+        <div class="d-flex justify-content-between" >
+          <div>
+          Final Price : {{final_price}}
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between" >
+        
+          <div>
+          Start Date : {{startdate_scheme}}
+          </div>
+          
+        </div>
+
+        <div class="d-flex justify-content-between" >
+          <div>
+          End Date : {{enddate_scheme}}
+          </div>
+        </div>
+
+        <div class="d-flex justify-content-between" >
+            <div>
+              <!--<span>{{{totalprice}}}</span>-->
+            </div>
+            {{#cmodeid}}
+                {{cmode}}
+                <!--
+                <a
+                  class="course-mode-title"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  href="{{{site_url}}}/local/marketplaceroot/product_details.php?id={{{productid}}}"
+                >
+                  {{cmode}}
+                </a>
+                -->
+            {{/cmodeid}}
+            {{^cmodeid}}
+                {{cmode}}
+            {{/cmodeid}}            
+        </div>
+      </div>
+      <input type = "hidden" name = "pge" value = "{{pge}}" id = "pge" class = "pge">
+      <input type = "hidden" name = "totpages" value = "{{totpages}}" id = "totpages" class = "totpages">
+  </div>  
+</div>
+
+{{/coursedata}}
+{{^coursedata}}
+    <div class="col-md-12" style="text-align:center!important;">No courses found</div>
+{{/coursedata}}
+</div>
+
+{{#totpages}}
+<div class = "row justify-content-center">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+    <!-- Old Code Start -->
+    <!--
+      <li class="page-item">
+          <a class="page-link previous-next {{^pfirst}}pprev{{/pfirst}}">Previous</a>
+      </li>
+      {{#pdata}}
+        {{#pblank}}
+            <li class="page-item">
+                  <a class="page-link">....</a>
+            </li>
+        {{/pblank}}
+        {{^pblank}}
+          <li class="page-item {{clshw}}">
+            {{#clshw}}
+                <a class="page-link">{{pno}}</a>
+            {{/clshw}}
+            {{^clshw}}
+                <a class="page-link pind" data-id="{{pno}}">{{pno}}</a>
+            {{/clshw}}
+          </li>
+        {{/pblank}}
+      {{/pdata}}
+      <li class="page-item"><a class="page-link previous-next {{^plast}}pnext{{/plast}}">Next</a></li>
+      -->
+      <!-- Old Code End -->
+      <li class="page-item {{fpgehilite}}">
+        <a class="page-link page-first" title="First"><<</a>
+      </li>
+      <li class="page-item">
+        <a class="page-link previous-next {{^pfirst}}pprev{{/pfirst}}" title="Previous"><</a>
+      </li>
+      <li class="page-item"><span class="align-top">{{pagemsg}}</span></li>
+      <li class="page-item"><a class="page-link previous-next {{^plast}}pnext{{/plast}}" title="Next">></a></li>
+      <li class="page-item {{lpgehilite}}">
+        <a class="page-link page-last" title="Last">>></a>
+      </li>
+    </ul>
+  </nav>
+</div>
+<div class = "row justify-content-center">
+  <nav aria-label="Page navigation example">
+    <ul class="pagination">
+      <li class="page-item justify-content-start"><span class="align-top"> Page {{pge}} / {{totpages}}</span></li>
+    </ul>
+  </nav>
+</div>
+{{/totpages}}
+

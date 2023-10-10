@@ -1,0 +1,13 @@
+body#page-local-schememanagement-schemecatalogue .previous-next {
+    color: #fff !important;
+    background-color: #11c26d;
+    border-color: #11c26d;
+    box-shadow: none;
+}
+
+body#page-local-schememanagement-schemecatalogue .previous-next:hover {
+    color: #fff;
+    background-color: #11c26d;
+    border-color: #11c26d;
+    box-shadow: none;
+}

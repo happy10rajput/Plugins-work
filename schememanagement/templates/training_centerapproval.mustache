@@ -1,0 +1,39 @@
+<table class="table table-hover" id="coursepartner_table">
+              <tr>
+                <th style="text-align:center;"><b>Sl No</b></th>
+                <th style=""><b>Course Name</b></th>
+                <th style=""><b>Training Center</b></th>
+                <th style=""><b>District Name</b></th>
+                <th style=""><b>Constituency Name</b></th>
+                <th style="text-align:center;"><b>Action</b></th>
+              </tr>
+            <tbody>
+          {{#record}}
+              <tr>
+                <td style="width:5%; text-align:center;">{{counter}}</td>
+                <td style="width:10%;">{{fullname}}</td>
+                <td style="width:10%;">{{center}}</td>
+                <td style="width:10%;">{{name}}</td>
+                <td style="width:10%;">{{constname}}</td>
+               <td style="width:8%; text-align:center;">
+               {{#status}}
+                <button type="button"  class="btn btn-primary centeraccept"  id="centeraccept" style="margin-right: 20px;" value="{{id}}" data-center="accept" disabled>Accepted</button></td>
+               {{/status}}
+                {{#reapply}}
+                <button type="button" data-toggle="modal" class="btn btn-primary reapplied"  id="reapplied" style="margin-right: 20px;" value="{{id}}" disabled>Reapplied</button></td>
+                 {{/reapply}}
+                  {{^status}}
+                  {{^reapply}}
+               <button type="button"  class="btn btn-danger reject"  id="reject" style="margin-right: 20px;" value="{{id}}" data-center="reject" disabled>Rejected</button>
+               <button type="button" data-toggle="modal" class="btn btn-primary reapply"  id="reapply" style="margin-right: 20px;" value="{{id}}">Reapply</button>
+               {{/reapply}}
+                {{/status}}
+                </tr>
+                {{/record}}
+                {{^record}}
+            
+                <tr><td colspan="6" style="text-align:center">NO RESULTS FOUND</td></tr>
+                {{/record}}
+            
+            </tbody>
+            </table>

@@ -1,0 +1,60 @@
+<style>
+#page-local-schememanagement-viewmapping .site-footer.bg-pink-600.grey-100{
+  display: none;
+}
+
+@media only screen and (max-width:1700px) {
+  #accept {
+    margin-bottom: 5px;
+  }
+}
+
+@media only screen and (max-width:480px) {
+  .table-mob-responsive {
+    overflow-x: scroll;
+  }
+}
+</style>
+<div class="table-mob-responsive">
+    <table class="table table-hover" id="coursepartner_table">
+    <tr>
+      <th style="text-align:center;"><b>SL No</b></th>
+      <th style=""><b>Scheme Name</b></th>
+      <th style=""><b>Course Name</b></th>
+      <th style=""><b>Batch Size</b></th>
+      <th style=""><b>Scheme Start Date</b></th>
+      <th style=""><b>End Date</b></th>
+      <th style="text-align:center;"><b>Action</b></th>
+    </tr>
+    <tbody>
+    {{#coursevalues}}
+      <tr>
+        <td style="width:5%; text-align:center;">{{counter}}</td>
+        <td style="width:10%;">{{schemename}}</td>
+        <td style="width:10%;">{{fullname}}</td>
+        <td style="width:10%;">{{batchsize}}</td>
+        <td style="width:10%;">{{startdate}}</td>
+        <td style="width:10%;">{{enddate}}</td>
+        <td style="width:8%; text-align:center;">
+        {{#is_mapped}}
+        <!--<button type="button" data-toggle="modal" class="btn btn-primary accept"  id="accept" style="margin-left: 10px;" value="{{id}}" disabled>Accepted</button>-->
+        <button type="button" class="btn btn-primary accept"  id="accept" style="margin-left: 10px;" value="{{id}}" disabled>Accepted</button>
+        {{#mode_online}}
+        <a><button type="button" class="btn btn-secondary create_center" style="margin-left: 5px;" value="{{id}}" disabled title="Online Course">Create Center</button></a>
+       {{/mode_online}}
+       {{^mode_online}}
+       <a href="coursecenter.php?schemeid={{schemeid}}&courseid={{id}}"><button type="button" class="btn btn-secondary create_center"  id="create_center" style="margin-left: 5px;" value="{{id}}">Create Center</button></a>
+       {{/mode_online}}
+        {{/is_mapped}}
+        {{^is_mapped}}
+        <button type="button" data-toggle="modal" class="btn btn-primary accept"  id="accept" style="margin-right: 20px;" value="{{id}}">Accept</button>
+        {{/is_mapped}}
+        <a href= '{{cfg}}/local/buykart/settings/product.php?id={{id}}'><button type="button"  data-toggle="modal" class="btn btn-info viewcourse"  value="" data-courseid="{{id}}">View Course</button></td>
+        </tr>
+    {{/coursevalues}}
+    {{^coursevalues}}
+      <tr><td colspan="6" style="text-align:center">NO RESULTS FOUND</td></tr>
+    {{/coursevalues}}
+    </tbody>
+    </table>
+</div>

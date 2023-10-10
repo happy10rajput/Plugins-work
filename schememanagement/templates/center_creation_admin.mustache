@@ -1,0 +1,32 @@
+<table class="table table-hover" id="coursepartner_table">
+              <tr>
+                <th style="text-align:center;"><b>Sl No</b></th>
+                <th style=""><b>Course Name</b></th>
+                <th style=""><b>District</b></th>
+                <th style=""><b>Constituency</b></th>
+                <th style=""><b>Center</b></th>
+                <th style=""><b>Batch Size</b></th>
+                <th style=""><b>Image</b></th>
+              </tr>
+            <tbody>
+            
+          
+              <tr>
+              {{#record}}
+                <td style="width:5%; text-align:center;">1</td>
+                <td style="width:10%;">{{fullname}}</td>
+                <td style="width:10%;">{{dname}}</td>
+                <td style="width:10%;">{{cname}}</td>
+                <td style="width:10%;">{{cname}}</td>
+                <td style="width:10%;">{{batchsize}}</td>
+                {{#fileinfo}}
+               <td style="width:10%;"> <a href="{{url}}">{{filename}}</a></td>
+                {{/fileinfo}}
+
+                {{/record}}
+                </tr>
+                
+              
+           
+            </tbody>
+            </table>

@@ -1,0 +1,423 @@
+<div class="container-fluid p-0" id="marketplace-landing-page">
+  <!-- super tab description content -->
+  <div class="tab-content">
+    <!-- Explore Course Block -->
+    <div class="tab-pane fade show active mt-100" id="explore_courses" role="tabpanel" aria-labelledby="explore-courses-tab">
+      <div class="course-section">
+        <p class="exploretabs-p" style="display:none !important">
+          Industry Aligned Courses from Global Tech Leaders & Organisations like
+          IBM, NASSCOM, Hitachi, Veritas, PACKT, BPB etc. backed by Industry
+          Projects and Job & Internship support.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filters -->
+  <div class="tabbable-responsive" style="margin:5% auto 0%; width: 100%;">
+    <div class="tabbable">
+      <div class="col-md-12 text-center" style="margin: 0 auto;">
+        <div class="d-flex mob-d-block itrack-explore-affordable justify-content-center">
+            <!-- Sector Filter -->
+            <div>
+              <select class="dropdown-design" id="bundlesector">
+                <option value="0" selected="true" disabled="disabled">Sector</option>
+                <option value="0"> All </option>
+                {{#sectorarray}}
+                <option value="{{ id }}" {{selected}}>{{ name }}</option>
+                {{/sectorarray}}
+              </select>
+            </div>
+           
+           <!-- Bundle Filter -->
+           <div>
+            <select class="dropdown-design" id="bundlecategory">
+              <option value="0" selected="true" disabled="disabled">Category</option>
+              <option value="0"> All </option>
+              {{#categoryarray}}
+              <option value="{{ id }}" {{selected}}>{{ name }}</option>
+              {{/categoryarray}}
+            </select>
+          </div>
+
+          <!--<div style="width: 15%;">
+            <select class="dropdown-design" id="bundlesubcategory">
+              <option selected="true" disabled="disabled">Select Sub Category</option>
+            </select>
+          </div>-->
+          <!-- course partner filter  -->
+          <div>
+            <select class="dropdown-design" id="coursepartner">
+              <option selected="true" disabled="disabled">Course Partner</option>
+              <option value="0"> All </option>
+              {{#coursepartners}}
+              <option value="{{id}}" {{selected}}>{{partner_name}}</option>
+              {{/coursepartners}}
+            </select>
+          </div>
+          <!-- duration filter -->
+          <!--<div>
+            <select class="dropdown-design" id="duration">
+              <option selected="true" disabled="disabled">Duration</option>
+              <option value="0"> All </option>
+              <option value="2400">Less than 40 Hours</option>
+              <option value="3600">40-60 Hours</option>
+              <option value="6000">60-100 Hours</option>
+              <option value="12000">100-200 Hours</option>
+              <option value="12001">200 Hours and Above</option>
+            </select>
+          </div>-->
+          <!-- price filter  -->
+          <!--<div>
+            <select class="dropdown-design" id="price">
+              <option selected="true" disabled="disabled">Price</option>
+              <option value="-1"> All </option>
+              <option value="5"> Free </option>
+              <option value="1000"> Less than 1000 </option>
+              <option value="4000"> 1000-4000 </option>
+              <option value="10000"> 4000-10000 </option>
+              <option value="10001"> 10000 and Above </option>
+            </select>
+          </div>-->
+         <!-- Mode of delivery filter -->
+          <div>
+            <select class="dropdown-design" id="delivmode">
+              <option selected="true" disabled="disabled">Mode of Delivery</option>
+              {{#coursemodes}}
+                <option value="{{id}}" {{selected}}>{{name}}</option>
+              {{/coursemodes}}
+              <!--<option value="0"> All </option>
+              <option value="2">Offline</option>
+              <option value="3">Blended</option>-->
+            </select>
+          </div> 
+         <!-- Course Level filter -->
+          <div>
+            <select class="dropdown-design" id="courlevel">
+              <option selected="true" disabled="disabled">Course Level</option>
+              <option value="0"> All </option>
+              {{#courselevels}}
+                <option value="{{id}}" {{selected}}>{{name}}</option>
+              {{/courselevels}}
+              <!--<option value="1">Beginner</option>
+              <option value="2">Intermediate</option>
+              <option value="3">Advanced</option>-->
+            </select>
+          </div>
+          
+          <!-- job role filter  -->
+          <!-- <div style="width: 19%;">
+            <select class="dropdown-design" id="jobrole">
+              <option selected="true" disabled="disabled">Job Role</option>
+              <option value="0"> All </option>
+              {{#jobsarray}}
+              <option value="{{id}}" {{selected}}>{{roles}}</option>
+              {{/jobsarray}}
+            </select>
+          </div> -->
+
+          <!-- rating filter  -->
+          {{!
+          <div>
+            <select class="dropdown-design" id="rating">
+              <option selected="true" disabled="disabled">Rating</option>
+              <option value="0">All</option>
+              <option value="1">1 star</option>
+              <option value="2">2 star</option>
+              <option value="3">3 star</option>
+              <option value="4">4 star</option>
+              <option value="5">5 star</option>
+            </select>
+          </div>
+          }}
+
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- load course card here -->
+  <div class="course-section course-card-pagination">
+    <!-- Search bar code -->
+    <div class="row row-ui">
+      <div class="col-sm-12 col-md-4"></div>
+      <div class="col-sm-12 col-md-4 searchbar-responsive">
+        <input class="searchbar" type="text" id="coursename" name="coursename" placeholder="Search.." value="{{cname}}">
+      </div>
+      <div class="col-sm-12 col-md-4 searchbar-mb">
+          <input class="btn btn-primary padadjust" type="button" value="Search" id="cnamesearch">
+      </div>
+    </div>
+    <!-- Search bar code end -->
+    <div id="loader" style="display: none;"></div>
+    <div class="row" id="course_data"></div>
+    <div class="text-center" id="course_data_message"></div>
+  </div>
+  <input type = "hidden" name = "pageurl" id = "pageurl" value = "{{pageurl}}">
+  <br />
+  <br />
+  <br />
+</div>
+
+<!-- Sign in popup for before login -->
+<div id="signinModal" class="modal fade signin-form" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content signinform-mobile"
+      style="padding-bottom: 0px !important; border-radius:10px!important; margin-top:14%">
+      <div class="modal-header sign-inheader">
+        <p class="modal-title text-change w-100 text-center" id="signinModalLabel">
+          <span class="font-bold text-center">
+            Sign In
+          </span>
+          to your Account!<br /><span class="mb-10"></span>
+          <span class="light-text-purple font-size-14 mt-4">
+            Enter your details to continue
+          </span>
+        </p>
+        <button type="button" class="close closemodal" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body course-buy-popup">
+        <form action="{{ site_url }}/login/index.php" method="post" id="login">
+          <input id="anchor" type="hidden" name="anchor" value="" />
+          <script>
+            document.getElementById("anchor").value = location.hash;
+          </script>
+          <div class="mt-4">
+            <div>
+              <input class="balloon" id="username" type="text" placeholder="Email Address" name="username" />
+              <label for="Email Address">
+                Email Address
+              </label>
+            </div>
+          </div>
+          <div class=" mt-3">
+            <div class="show_password">
+              <input class="balloon w-100" id="password" name="password" required="" type="password"
+                placeholder="Enter Password" style="border: solid 0.5px #b0b0b3 !important;" />
+              <label for="Enter Password">
+                Enter Password
+              </label>
+              <span class="showicon">
+                <i class="fa fa-eye-slash fa-sm" aria-hidden="true"></i></span>
+            </div>
+          </div>
+          <div class="form-group">
+            <div class="checkbox-custom checkbox-inline checkbox-primary float-left rememberpass">
+              <input type="checkbox" id="rememberusername" name="rememberusername" value="1"
+                {{#rememberUser}}checked="checked" {{/rememberUser}} {{#rememberUser}}checked="checked"
+                {{/rememberUser}}>
+              <span for="rememberusername">Remember Me</span>
+            </div>
+          </div>
+          <div class="col-md-12 mt-2 pl-0 pr-0">
+            <button id="signin" class="btn col-md-12 font-weight-bold sign_in_button" style="margin-bottom: 20px;">
+              Sign In
+            </button>
+          </div>
+
+          <div class="form-row" style="margin-top: 13px;">
+            <div class="form-group col-md-6 mt-4 p-2">
+              <a href="{{ site_url }}/password">
+                <span class="light-text-purple font-size-12">
+                  Forgot Password?
+                </span>
+              </a>
+              <br />
+              <span class="text-dark font-size-12">
+                Don't have an account?
+              </span>
+            </div>
+
+            <div class="form-group col-md-6  mt-5 p-2 ">
+              <input type="hidden" class="pidpopup" value="{{ productid }}" />
+              <a id="loginbtn" class="another-register font-size-12 font-bold float-right"
+                style="color: #00b85b !important;" onClick="redirectToRegistration('{{{site_url}}}');">Register</a>
+            </div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="myBatchModal">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"
+          style="color: #00b85b;font-size: 16px; font-weight: 600;margin-top: -6px; margin-left: 143px;">
+          Choose Your Batch
+        </h4>
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <form>
+          <input type="hidden" name="siteurl" class="siteurl" value="{{{site_url}}}" />
+          <input type="hidden" name="buy" class="buy" />
+          <div class="appendBatches"></div>
+        </form>
+      </div>
+
+      <!-- Modal footer -->
+      <!-- <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        </div> -->
+    </div>
+  </div>
+</div>
+
+<div class="modal" id="myfreeBatch">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <h4 class="modal-title"
+          style="color: #00b85b;font-size: 16px; font-weight: 600;margin-top: -6px; margin-left: 143px;">
+          Choose Your Batch
+        </h4>
+        <button type="button" class="close" data-dismiss="modal">
+          &times;
+        </button>
+      </div>
+
+      <!-- Modal body -->
+      <div class="modal-body">
+        <input type="hidden" name="siteurl" class="siteurl" value="{{{site_url}}}" />
+        <div class="appendfreeBatches"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+  /* .pass_show{position: relative}  */
+
+  .show_password .showicon {
+    position: absolute;
+    top: 29%;
+    right: 35px;
+    z-index: 1;
+    color: #00b85b;
+    cursor: pointer;
+    transition: 0.3s ease all;
+  }
+
+  .show_password .showicon:hover {
+    color: #333333;
+  }
+
+  .batches-bg {
+    background: #fff;
+    border: 1px solid #8080802b;
+    width: 435px;
+    margin-bottom: 20px;
+    font-size: 12.5px;
+    font-weight: 200;
+    border-radius: 6px;
+    padding: 10px 10px 10px 30px;
+    cursor: pointer;
+  }
+
+  input#radio1,
+  input#radio2,
+  input#radio3 {
+    margin-left: 8px;
+    margin-top: 13px;
+  }
+
+  .available {
+    color: #44b444;
+  }
+
+  .btn-cart {
+    background: #00b85b1f;
+    color: #00b85b;
+    font-size: 14px;
+  }
+
+  .form-check {
+    padding-left: 0px !important;
+  }
+
+  #loader {
+    position: absolute;
+    left: 50%;
+    margin-left: -50px;
+    top: 50%;
+    margin-top: -50px;
+    border: calc(200px / 10) solid #ddd;
+    border-top: 20px solid rgba(255, 29, 94, 1);
+    border-radius: 100%;
+    box-shadow: 0px 0px 5px inset #ccc;
+    width: 100px;
+    height: 100px;
+    animation: spin 2s linear infinite;
+  }
+
+  @keyframes spin {
+    0% {
+      transform: rotate(0deg);
+    }
+
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+
+  .new-header {
+    /* display: block; */
+    padding: 0 !important;
+  }
+
+  .alert-dismissible .close {
+    padding: 0 !important;
+    margin: -20px 0 0 !important;
+  }
+
+  .signinform-mobile .mt-3,
+  .signinform-mobile .my-3 {
+    margin-top: 2rem !important;
+    margin-bottom: 1rem !important;
+  }
+
+  .signinform-mobile .mt-5 {
+    margin-top: 2rem;
+  }
+
+  #loginbtn,
+  #id_submitbutton,
+  #id_cancel {
+    cursor: pointer;
+  }
+
+  .swal2-container {
+    z-index: 10000;
+  }
+
+  body#page-local-marketplace-index .site-menubar-fold .site-navbar .navbar-container {
+    margin-left: 140px !important;
+  }
+
+  .for-business-parent {
+    height: 65px;
+  }
+     .site-menubar-unfold .page, .site-menubar-unfold .site-footer {
+     padding-left: 0px;
+  }
+  #jobrole {
+    width:200px !important; 
+    overflow:hidden; 
+    white-space:nowrap; 
+    text-overflow:ellipsis;
+  }
+  .padadjust {
+    padding : 5px 10px 5px 10px;
+  }
+</style>

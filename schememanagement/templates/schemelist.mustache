@@ -1,0 +1,72 @@
+<table class="table" id="schemetable">
+    <thead>
+        <tr>
+            <th scope="col">Scheme Name</th>
+            <th scope="col">Start Date</th>
+            <th scope="col">End Date</th>
+            <th scope="col">Scheme Owner</th>
+            <th scope="col">Batch Size</th>
+             <th scope="col">Minimum Batch Size</th>
+            <th scope="col">Scholarship Percentage</th>
+            <th scope="col">Total Funds</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#tabledata}}
+            {{#schemedata}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{startdate}}</td>
+                    <td>{{enddate}}</td>
+                    <td>{{scheme_owner}}</td>
+                    <td>{{batchsize}}</td>
+                    <td>{{minbatchsize}}</td>
+                    <td>{{scholarship}}</td>
+                    <td>{{totalfunds}}</td>
+                    <td>{{{actiontn}}}</td>
+                </tr>
+            {{/schemedata}}
+        {{/tabledata}}
+        {{^tabledata}}
+            <tr><td colspan="6" style="text-align:center">NO RESULTS FOUND</td></tr>
+        {{/tabledata}}
+    </tbody>
+</table>
+ <div class="modal fade" id="schememodal" role="dialog">
+                <div class="modal-dialog">                
+                  <div class="modal-content">
+                    <div class="modal-header header-color">
+                      <button type="button" class="close" data-dismiss="modal">&times;</button>
+                      <h4 class="modal-title" id="title"></h4>
+                    </div>
+                    <div class="modal-body">
+                      <div class="form-group row otherType">
+                        <div class="col-sm-12 required">
+                        <span class="fifty" >
+                            <b>Subscheme:</b><b id="subscheme" style="padding-left: 10px;"></b></span>
+                             <span class="hundred" >
+                            <b>Scheme Owner Name:</b><b id="ownername" style="padding-left: 10px;"></b></span>
+                        <span class="fifty">
+                            <b>Batch Size :</b><b id="batchsize" style="padding-left: 10px;"></b>
+                        </span>
+                         <span class="fifty">
+                            <b>Total Funds :</b><b id="funds" style="padding-left: 10px;"></b>
+                        </span>
+                      
+                        <span class="hundred">
+                            <b>Description:</b><b id="desc" style="padding-left: 10px;"></b>
+                        </span>
+                        <span class="fifty">
+                            <b>Gender:</b><b id="gender" style="padding-left: 10px;"></b>
+                        </span>
+                        <span class="fifty">
+                            <b>Category:</b><b id="category" style="padding-left: 10px;"></b>
+                        </span>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="modal-footer">
+                         <button type="button" class="btn btn-dark" data-dismiss="modal">Cancel</button>
+                    </div>
+                  </div>

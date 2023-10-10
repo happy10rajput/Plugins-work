@@ -1,0 +1,1177 @@
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+   <title>{{{ output.page_title }}}</title>
+   <link rel="icon" href="{{{pluginlink}}}/pix/itrack_logo-mini.png" type="image/gif">
+   <style>
+   .enr-btn{display: block;}
+   .course-content-div p a{position: relative!important;}
+   </style>
+</head>
+<input type="hidden" name="siteurl" class="siteurl" value="{{{site_url}}}">
+<input type="hidden" name="corseid" class="corseid" value="{{course_id}}" id = "corseid">
+<input type="hidden" name="courseid" class="courseid" value="{{courseid}}" id = "courseid">
+<input type="hidden" name="userid" class="userid" value="{{userid}}" id = "userid">
+<input type="hidden" name="schemeid" class="schemeid" value="{{schemeid}}" id = "schemeid">
+<input type = "hidden" name = "pge" value = "{{pge}}" id = "pge" class = "pge">
+<input type = "hidden" name = "totpages" value = "{{totpages}}" id = "totpages" class = "totpages">
+<input type = "hidden" name = "pageurl" id = "pageurl" value = "{{pageurl}}">
+<div class="container-fluid p-0 " id="landing-page">
+   {{#en_section1}}
+   <div class="col-sm-12 banner-space">
+      <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+         <div class="carousel-inner">
+            <div class="socialmediaLinks">
+            </div>
+            <div class="carousel-item active">
+               <div class="carousal-banner">
+                  {{^course_banner}}<img src="{{{pluginlink}}}/pix/newsite/course-banner.jpg" class="d-block" alt="...">
+                  {{/course_banner}}
+                  {{#course_banner}}
+                  <img src="{{{course_banner}}}" class="d-block" alt="...">
+                  {{/course_banner}}
+               </div>
+               <div class="carousal-content white ml-5">
+                  <div class="d-flex">
+                     <span>
+                        {{^partner_url}}
+                        <img src="{{{pluginlink}}}/pix/newsite/Icon_Get-Certified-(1).png" class="edu-banner-img"
+                           alt="...">
+                        {{/partner_url}}
+                        {{#partner_url}}
+                        <img src="{{{partner_url}}}" class="edu-banner-img" alt="...">
+                        {{/partner_url}}
+                     </span>
+                     {{#partner_name}}
+                     <span style="margin-top: 10px;margin-left: 15px;">
+                        <h3>| {{partner_name}}</h3>
+                     </span>
+                     {{/partner_name}}
+                  </div>
+                  {{#en_coursename}} <h2 class="m-font-size-22 course-product-name">{{{product_name}}}</h2>
+                  <p class=" m-btm-banner-content" style="font-family: 'Open Sans', sans-serif; font-weight:600; ">
+                  </p>{{/en_coursename}}
+                  {{#en_course_desc}}
+                  <h4 class=" m-btm-banner-content m-font-size-15 col-md-8 col-md-6 col-md-4"
+                     style="font-family: 'Open Sans', sans-serif; font-weight:600; font-size:20px;line-height: 30px; padding-left: 0px;">
+                     <span title="{{{summary12}}}{{{summary13}}}">
+                     {{{summary}}}{{{summary11}}}
+                     </span></h4>{{/en_course_desc}}
+                  <div class="mob-d-block mt-5 d-flex col-md-12 pl-0">
+                     {{#en_applynow}}
+                     {{^normalCourse}}
+                     <!--<div data-toggle="modal" data-target="#myBatchModal"><span class="trail-btn "
+                           style="font-family: 'Open Sans', sans-serif; font-weight:600;top:27px;"><a>Apply
+                              Now</a></span>
+                     </div>-->
+                     {{/normalCourse}}
+                     {{^isfree}}
+                     {{#normalCourse}}
+                     {{^isloggedin}}
+                     <div>
+                     </div>
+                     
+                     {{/isloggedin}}
+                     {{/normalCourse}}
+                     {{/isfree}}
+                     {{/en_applynow}}
+                     {{#en_course_vurl}} <div class="d-flex mob-d-block" style="margin-left: 30px;margin-top: 0px;">
+                     </div>
+                     {{/en_course_vurl}}
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+      {{#en_course_overview}}<div class="col-md-12">
+         <div class="top-rec mb-3">
+            <div class="d-flex justify-content-between mob-d-block">
+               <div class="box-spaces">
+                  <a href="#courseOverview">
+                     <h4>Course Overview</h4>
+                  </a>
+                  <p><span>Description </span><span>| Objective </span><span>|
+                        Learning Outcomes </span><span>| Skills</span></p>
+               </div>
+               {{#en_partner}}
+               <div class="box-spaces">
+                  <a href="#partners">
+                     <h4>Partners</h4>
+                  </a>
+                  {{#partner_description}}
+                  <p><span>{{partner_description_ribbon}}</span></p>
+                  {{/partner_description}}
+               </div>
+               {{/en_partner}}
+               {{#en_certificate1}}
+               <div class="box-spaces">
+                  <a href="#partners">
+                     <h4>Certificate</h4>
+                  </a>
+                  <p><span>Get Certified &
+                        Enhance your Career</span></p>
+               </div>
+               {{/en_certificate1}}
+               {{#en_section6}}
+               <div class="box-spaces">
+                  <a href="#instructors">
+                     <h4>Instructors</h4>
+                  </a>
+                  <p><span>Learn from the best
+                        of Industry Experts</span></p>
+               </div>
+               {{/en_section6}}
+               {{#en_section5}}
+               <div class="box-spaces">
+                  <a href="#batches">
+                     <h4>Batches</h4>
+                  </a>
+                  <p style="width: max-content;">{{#batches}}{{startdate}}<br>{{/batches}}</p>
+               </div>
+               {{/en_section5}}
+               {{#en_section8}}
+               <div class="box-spaces">
+                  <a href="#faq">
+                     <h4>FAQ</h4>
+                  </a>
+                  <p><span>Get your
+                        Answers</span></p>
+               </div>
+               {{/en_section8}}
+            </div>
+         </div>
+      </div>{{/en_course_overview}}
+   </div>
+   {{/en_section1}}
+   {{#en_section2}}
+   <div class="col-md-12" style=" margin-top: 60px;" id="courseOverview">
+      <div class="row ">
+         {{#en_learning_outcome}}
+         <div class="col-md-8 learning-section">
+            <h2>Course Overview</h2>
+            <div>
+               {{{learning_outcome}}}
+            </div>
+            {{/en_learning_outcome}}
+         </div>
+         {{#en_pricebox}}
+         <div class="mob-pr-0" >
+            <div class="col-md-12 learning-right-section text-center" style="width: 400px;">
+            {{#mode_online}}
+               <h5 class="start-text" style="text-transform: uppercase !important;">
+                  <!--Start learning today!-->
+                  {{#onlinedata}}Scheme start Date : {{startdate}}{{/onlinedata}}
+               </h5>
+                 <h5 class="start-text" style="text-transform: uppercase !important;">
+                  <!--Start learning today!-->
+                  {{#onlinedata}} Available Slots : {{available_slots}}{{/onlinedata}}
+               </h5>
+            {{/mode_online}}
+            
+            {{#mode_blended}}
+             <h5 class="start-text" style="text-transform: uppercase !important;">
+                  <!--Start learning today!-->
+                  {{#onlinedata}}Scheme start Date : {{startdate}}{{/onlinedata}}
+               </h5>
+                 <h5 class="start-text" style="text-transform: uppercase !important;">
+                  <!--Start learning today!-->
+                  {{#onlinedata}} Available Slots : {{available_slots}}{{/onlinedata}}
+               </h5>
+               {{/mode_blended}}
+              <h5 class="start-text" style="text-transform: uppercase !important;">
+                  <!--Start learning today!-->
+                  {{#cstartshow}}Start Date : {{cstartshow}}{{/cstartshow}}
+               </h5>
+               {{#c_criteria}}
+                  <h4 class="start-text" style="text-transform: uppercase !important;">( {{cour_criteria}} )</h4>
+               {{/c_criteria}}
+               {{^c_criteria}}
+                  <h4 class="start-text" style="text-transform: uppercase !important;"></h4>
+               {{/c_criteria}}               
+               {{#enable_discount}}
+               <h2 class="learning-price">{{discounted_price}}</h2>
+               <div class="second-price">
+                  <p><span class="dis-price"><strike>₹{{price}}</strike></span><span class="offer">{{discount}}%
+                        off</span>
+                  </p>
+               </div>
+               {{/enable_discount}}
+               {{^enable_discount}}
+               <h2 class="learning-price">₹ {{price}}</h2>
+               
+               <div class="second-price">
+                  <p><span class="dis-price"><strike>{{price}}</strike></span><span class="offer">{{discount}}%off</span>
+                  </p>
+              
+               </div>
+               {{/enable_discount}}
+            <!---Samir Added--->
+               {{#isloggedin}}
+               <p class="gsttag">Avg Rating</p>{{{stardata}}}
+               {{#apply_access}}
+               <p class="gsttag">Your Rating</p>{{{ownstardata}}}
+               {{/apply_access}}
+               {{/isloggedin}}
+               {{^isloggedin}}
+               <p class="gsttag">Avg Rating</p>{{{stardata}}}
+               {{/isloggedin}}
+               {{^offline_apply_action}}
+               {{/offline_apply_action}}
+               {{#offline_apply_action}}
+               {{#normapplied}}
+                  <a href="#">
+                     <span class="cfull">Already applied ( Non Scheme ) </span>
+                  </a> 
+               {{/normapplied}}
+               {{^normapplied}}
+                  {{#applied}}
+                    {{#scheme_status}}
+                        {{#reapp_stts}}
+                           {{#chckcour}}
+                              <a href="#">
+                                 <span class="cfull">Reapplied</span>
+                              </a>
+                           {{/chckcour}}
+                           {{^chckcour}}
+                              <a href="#">
+                                 <span class="cfull">Reapplied - Other Center</span>
+                              </a>
+                           {{/chckcour}}
+                        {{/reapp_stts}}
+                        {{^reapp_stts}}
+                          {{#mode_online}}
+                              {{#batchfull}}
+                                 <a>
+                                    <span class="cfull">Batch full/span>
+                                  </a>
+                              {{/batchfull}}
+                              {{^batchfull}}
+                                 <a data-toggle='modal' class="apply_online" data-target='#apply_offline_course_modal' data-id="{{{productid}}}" data-centerid=0>
+                                    <span class="cfull">Apply Now</span>
+                                 </a>
+                              {{/batchfull}}
+                           {{/mode_online}}
+                           {{^mode_online}}
+                              {{#mode_blended}}
+                                 <a data-toggle='modal' class="apply_online" data-target='#apply_offline_course_modal' data-id="{{{productid}}}" data-centerid=0>
+                                    <span class="cfull">Apply Now(ONLINE)</span>
+                                 </a>
+                                 <br>
+                                 {{#nocenter}}
+                                    <a href="">
+                                    <span class="cfull">No Centers Available</span>
+                                    </a>
+                                 {{/nocenter}}
+                                 {{^nocenter}}
+                                 <a href="#avail_course_centers">
+                                    <span class="cfull">Apply Now(OFFLINE)</span>
+                                 </a>
+                                 {{/nocenter}}
+                              {{/mode_blended}}
+                              {{^mode_blended}}
+                                 {{#nocenter}}
+                                    <a href="">
+                                       <span class="cfull">No Centers Available</span>
+                                    </a>
+                                 {{/nocenter}}
+                                 {{^nocenter}}
+                                    <a href="#avail_course_centers">
+                                       <span class="cfull">Apply Now</span>
+                                    </a>
+                                 {{/nocenter}}
+                              {{/mode_blended}}
+                           {{/mode_online}}
+                        {{/reapp_stts}}
+                     {{/scheme_status}}
+                     {{^scheme_status}}
+                        {{#chckcour}}
+                           <a href="#">
+                              <span class="cfull">Already applied</span>
+                           </a>
+                        {{/chckcour}}
+                        {{^chckcour}}
+                           <a href="#">
+                              <span class="cfull">Already applied - Other Center</span>
+                           </a>
+                        {{/chckcour}}
+                     {{/scheme_status}}
+                     {{/applied}}
+                     {{^applied}}
+                     {{#mode_online}}
+                     {{#batchfull}}
+                        <a>
+                        <span class="cfull">Batch full/span>
+                     </a>
+                     {{/batchfull}}
+                     {{^batchfull}}
+                     <a data-toggle='modal' class="apply_online" data-target='#apply_offline_course_modal' data-id="{{{productid}}}" data-centerid=0>
+                        <span class="cfull">Apply Now</span>
+                     </a>
+                     {{/batchfull}}
+                     {{/mode_online}}
+                     {{^mode_online}}
+                     {{#mode_blended}}
+                     <a data-toggle='modal' class="apply_online" data-target='#apply_offline_course_modal' data-id="{{{productid}}}" data-centerid=0>
+                        <span class="cfull">Apply Now(ONLINE)</span>
+                     </a>
+                     <br>
+                     {{#nocenter}}
+                        <a href="">
+                        <span class="cfull">No Centers Available</span>
+                     </a>
+                     {{/nocenter}}
+                     {{^nocenter}}
+                     <a href="#avail_course_centers">
+                        <span class="cfull">Apply Now(OFFLINE)</span>
+                     </a>
+                     {{/nocenter}}
+                     {{/mode_blended}}
+                     {{^mode_blended}}
+                     {{#nocenter}}
+                        <a href="">
+                        <span class="cfull">No Centers Available</span>
+                     </a>
+                     {{/nocenter}}
+                     {{^nocenter}}
+
+                     <a href="#avail_course_centers">
+                        <span class="cfull">Apply Now</span>
+                     </a>
+                     {{/nocenter}}
+                     {{/mode_blended}}
+                     {{/mode_online}}
+                  {{/applied}}
+               {{/normapplied}}                     
+               {{/offline_apply_action}}
+
+            </div>
+         </div>
+         {{/en_pricebox}}
+      </div>
+   </div>          
+   {{^mode_online}}
+      {{#appliedcentshow}}
+         <!-- Applied Course Center div start -->
+         <div class="learning-section slots_avail" style="width: 90% !important;" id="avail_course_centers">
+            <h2>Applied Course Center</h2>            
+            <div style="overflow-x: scroll;">
+            <!-- id="center_table"  -->
+            <table class="table table-striped">
+               <thead>
+                  <tr>
+                     <th>Sl. No.</th>
+                     <th>District</th>
+                     <th>Constituency</th>
+                     <th>Center Address</th>
+                     <th>Available Slots</th>                        
+                     <th>Start Date</th>
+                  </tr>
+               </thead>
+               <tbody>
+                  {{#appliedcentarr}}
+                  <tr>
+                     <td>{{slno}}</td>
+                     <td>{{district}}</td>
+                     <td>{{consti}}</td>
+                     <td>{{center}}</td>
+                     <td>{{availslots}}</td>
+                     <td>{{cstartdate}}</td>
+                  </tr>
+                  {{/appliedcentarr}}
+                  {{^appliedcentarr}}
+                  <tr>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                     <td></td>
+                  </tr>
+                  {{/appliedcentarr}}
+               </tbody>
+            </table>
+            </div>
+         </div>
+         <br><br>
+      {{/appliedcentshow}}
+
+      <div class="learning-section slots_avail" style="width: 90% !important;" id="avail_course_centers">
+            <h2>Course Centers</h2>            
+            <div class="row col-sm-12 justify-content-end">
+               <input type="text" id="cenname1" name="cenname1" placeholder="Search.." value="{{srch}}">&nbsp;
+               <input class="btn btn-primary" type="button" value="Go" id="censearch">
+            </div>
+            <div style="overflow-x: scroll;">
+            <table class="table table-striped" id="center_table">
+            <thead>
+               <tr>
+                  <th>Sl. No.</th>
+                  <th>District</th>
+                  <th>Constituency</th>
+                  <th>Center Address</th>
+                  <th>Available Slots</th>                        
+                  <th>Start Date</th>
+                  {{^offline_apply_action}}
+                  {{/offline_apply_action}}
+                  {{#offline_apply_action}}
+                  <th>Action</th>   
+                     {{/offline_apply_action}}
+               </tr>
+            </thead>
+            <tbody>                       
+               {{#course_centers}}
+               <tr>
+                  <td>{{slno}}</td>
+                  <td>{{district}}</td>
+                  <td>{{consti}}</td>
+                  <td>{{center}}</td>
+                  <td>{{availslots}}</td>
+                  <td>{{cstartdate}}</td>
+                  {{^offline_apply_action}}
+                  {{/offline_apply_action}}
+                  {{#offline_apply_action}}
+                  {{#batchfull}}
+                  <td>Batch full</td>
+                  {{/batchfull}}
+                     {{^batchfull}}
+                  {{#course_applied}}
+                  <td>
+                     {{#scheme_status}}
+                        {{#reapp_stts}}
+                           {{reothercenter}}
+                        {{/reapp_stts}}
+                        {{^reapp_stts}}
+                           <a href="" class="w3-btn w3-margin-top apply_now" data-toggle="modal" data-target="#apply_offline_course_modal" data-centerid={{centerid}}>
+                              <span>Apply Now</span>
+                           </a>
+                        {{/reapp_stts}}
+                     {{/scheme_status}}
+                     {{^scheme_status}}
+                        {{othercenter}}
+                     {{/scheme_status}}
+                  </td>
+                  {{/course_applied}}
+                  {{^course_applied}}
+                  <td>
+                     {{#normapplied}}
+                        Already Applied (Non-Scheme Mode)
+                     {{/normapplied}}
+                     {{^normapplied}}
+                        <a href="" class="w3-btn w3-margin-top apply_now" data-toggle="modal" data-target="#apply_offline_course_modal" data-centerid={{centerid}}>
+                           <span>Apply Now</span>
+                        </a>
+                     {{/normapplied}}                        
+                  </td>    
+                  {{/course_applied}}    
+                  {{/batchfull}}     
+                  {{/offline_apply_action}}                                 
+               </tr>
+               {{/course_centers}}
+                  {{^course_centers}}
+                  <tr><td colspan="6" style="text-align:center">NO TRAINING CENTER FOUND</td></tr>
+               {{/course_centers}}
+            </tbody>
+         </table>
+         </div>
+         {{#totpages}}
+            <div class = "row justify-content-center">
+               <nav aria-label="Page navigation example">
+                  <ul class="pagination justify-content-end">
+                     <!-- Old Code Start --> 
+                     <!--
+                     <li class="page-item">
+                        <a class="page-link previous-next {{^pfirst}}pprev{{/pfirst}}">Previous</a>
+                     </li>
+                     {{#pdata}}
+                        {{#pblank}}
+                           <li class="page-item">
+                                 <a class="page-link">....</a>
+                           </li>
+                        {{/pblank}}
+                        {{^pblank}}
+                        <li class="page-item {{clshw}}">
+                           {{#clshw}}
+                              <a class="page-link">{{pno}}</a>
+                           {{/clshw}}
+                           {{^clshw}}
+                              <a class="page-link pind" data-id="{{pno}}">{{pno}}</a>
+                           {{/clshw}}
+                        </li>
+                        {{/pblank}}
+                     {{/pdata}}
+                     <li class="page-item"><a class="page-link previous-next {{^plast}}pnext{{/plast}}">Next</a></li>
+                     -->
+                     <!-- Old Code End -->
+                     <li class="page-item {{fpgehilite}}">
+                         <a class="page-link page-first" title="First"><<</a>
+                     </li>
+                     <li class="page-item">
+                        <a class="page-link previous-next {{^pfirst}}pprev{{/pfirst}}" title="Previous"><</a>
+                     </li>
+                     <li class="page-item mt-10"><span>{{pagemsg}}</span></li>
+                     <li class="page-item"><a class="page-link previous-next {{^plast}}pnext{{/plast}}" title="Next">></a></li>
+                     <li class="page-item {{lpgehilite}}">
+                        <a class="page-link page-last" title="Last">>></a>
+                     </li>
+                  </ul>
+            </nav>
+            </div>
+            <div class = "row justify-content-center">
+               <nav aria-label="Page navigation example">
+                  <ul class="pagination">
+                     <li class="page-item justify-content-start"><span class="align-top"> Page {{pge}} / {{totpages}}</span></li>
+                  </ul>
+               </nav>
+            </div>
+      {{/totpages}}
+      </div>
+   {{/mode_online}}
+   {{/en_section2}}
+   {{#en_syllabus}}
+   <div class="col-md-12 syllabus-section">
+      <div class="d-flex justify-content-around mob-d-block">
+         <div>
+            <h5>Syllabus</h5>
+            <p>Best-in-class content by leading faculty and industry leaders in the form of videos, cases and
+               projects
+            </p>
+         </div>
+
+         {{#en_download_syllabus}}
+
+         <div style="margin-top: 22px; ">
+            {{#syllbus_content}}
+            {{#isloggedin}}
+            <a class="download-btn" href="{{syllbus_content}}" download>
+               <span><i class="fa fa-download" aria-hidden="true" style="margin-right: 3px;"></i> Download
+                  Syllabus</span>
+            </a>
+            {{/isloggedin}}
+            {{^isloggedin}}
+            <div class="download-btn" data-target="#downloadsyllabus" data-toggle="modal" title="Book Now">Download
+               Syllabus
+            </div>
+            {{/isloggedin}}
+            {{/syllbus_content}}
+            <!-- {{^syllbus_content}}
+            <a class="download-btn">
+               <span><i class="fa fa-download" aria-hidden="true" style="margin-right: 3px;"></i>Syllabus Not
+                  Added</span>
+            </a>
+            {{/syllbus_content}} -->
+         </div>
+         {{/en_download_syllabus}}
+      </div>
+   </div>
+   {{/en_syllabus}}
+   {{#en_section3}}
+   <div class="description-section" style="margin-top: 90px;">
+      <div class="col-md-12">
+         <div class="row">
+            {{#en_course_desc_s3}}
+            <div class="col-md-6">
+               <h4>Course Description</h4>
+               <p>{{{summary1}}}{{{summary2}}}</p>
+               <!--
+               <p>{{#summary1}}{{{summary1}}}{{/summary1}}{{#summary2}}<span class="dot1">...</span>{{/summary2}}<span
+                     class="moretext1" style="display:none;">{{{summary2}}}</span>
+               </p>
+               <a class="d-block moreless-button1 text-right" href="javascript:void(0)">Read more</a>
+               -->
+            </div>
+            {{/en_course_desc_s3}}
+            {{#en_course_objective}}
+            <div class="col-md-6">
+               <h4>Course Objective</h4>
+               <p>{{#objective}}{{{objective}}}{{/objective}}{{#objective1}}<span
+                     class="dot2">...</span>{{/objective1}}<span class="moretext2"
+                     style="display: none;">{{{objective1}}}<span></p>
+               {{#objective1}}<a class="d-block moreless-button2 text-right" href="javascript:void(0)">Read more</a>{{/objective1}}
+
+            </div>
+            {{/en_course_objective}}
+            {{#en_course_skill}}
+            <div class="col-md-6">
+               <h4>Skills You Will Gain</h4>
+               {{#skillset}}
+
+               <p>{{#skillset}}{{{skillset}}}{{/skillset}}{{#skillset1}}<span class="dot">...</span>{{/skillset1}}<span
+                     class="moretext" style="display: none;">{{{skillset1}}}<span></p>
+               {{/skillset}}
+               {{! <a class="d-block moreless-button text-right" href="javascript:void(0)">Read more</a> }}
+            </div>
+            {{/en_course_skill}}
+            {{#en_course_content}}
+            <div class="col-md-12 card">
+               <p class="" id="headingOne">
+               <h4 class="btn btn-primary text-left" type="button" data-toggle="collapse" data-target="#collapseExample"
+                  aria-expanded="false" aria-controls="collapseExample">
+                  Course Content
+               </h4>
+               </p>
+               <div class="collapse show" id="collapseExample">
+                  <div class="course-content-block course-content-div" style="margin-top: -30px;">
+                     {{#tableofcontent}}
+                        {{{tableofcontent}}}
+                     {{/tableofcontent}}
+                     {{#tableofcontent1}}
+                        {{{tableofcontent1}}}
+                     {{/tableofcontent1}}
+                  </div>
+               </div>
+            </div>            
+            {{/en_course_content}}
+         </div>
+      </div>
+   </div>
+   {{/en_section3}}
+   {{#en_section4}}
+   <div class="rec-section-2" id="partners">
+      <div style="margin: 0 157px;" class="itrackcollege">
+         <div>
+            <!-- <h2 class="text-center text-dark" style="margin-bottom: 30px;font-weight: 600;">iTrack for College </h2> -->
+            <div class="">
+               <ul class="nav nav-tabs row " id="myTab" role="tablist">
+                  {{#en_partner}}
+                  <li class="nav-item   training-tab" style="padding-left: 0px;">
+                     <a class="nav-link active" id="trainingupskill" data-toggle="tab" href="#trainingup" role="tab"
+                        aria-controls="home" aria-selected="true">
+                        <span class="training">
+                           Partners
+                           <!-- <p style="visibility: hidden;" class="mb-0">a</p> -->
+                        </span>
+                     </a>
+                  </li>
+                  {{/en_partner}}
+                  {{#en_certificate1}}
+                  <li class="nav-item  mentornship">
+                     <a class="nav-link" id="mentornship" data-toggle="tab" href="#Mentorship" role="tab"
+                        aria-controls="Mentorship" aria-selected="false">
+                        <span class="trainingmentor">
+                           Certificate
+                           <!-- <p style="visibility: hidden;" class="mb-0">a</p> -->
+                        </span>
+                     </a>
+                  </li>
+                  {{/en_certificate1}}
+                  {{#en_content_partner}}
+                  <!-- <li class="nav-item college-connect">
+                     <a class="nav-link" id="collegeconnect" data-toggle="tab" href="#collegecn" role="tab"
+                        aria-controls="collegeconnect" aria-selected="false">
+                        <span class="trainingcollege">
+                           Content Partners
+                           <p style="visibility: hidden;" class="mb-0">a</p> 
+                        </span>
+                     </a>
+                  </li> -->
+                  {{/en_content_partner}}
+                  {{#certurl}}
+                  <li class="nav-item college-certpartner">
+                     <a class="nav-link" id="collegecertpartner" data-toggle="tab" href="#certifpartner" role="tab"
+                        aria-controls="collegeconnect" aria-selected="false">
+                        <span class="trainingcollege">
+                           Certification Partner
+                           <!-- <p style="visibility: hidden;" class="mb-0">a</p> -->
+                        </span>
+                     </a>
+                  </li>
+                  {{/certurl}}
+               </ul>
+            </div>
+         </div>
+         <div class="tab-content" id="myTabContent">
+            <!--partner value -->
+            {{#partner_details}}
+            <div class="tab-pane fade show active" id="trainingup" role="tabpanel" aria-labelledby="trainingupskill">
+               <div class="col-md-12">
+                  <div class="row">
+                     <div class="col-md-7 pl-0">
+                        <!--<h3>{{partner_name}}dd</h3>-->
+                        <h3>{{cpfullname}}</h3>
+                        <p>{{partner_description}}.</p>
+                     </div>
+                     {{#partner_url}}
+                     <div class="col-md-5 text-center">
+                        <img src="{{{partner_url}}}" class="edureka-img" alt="..." style="">
+                     </div>
+                     {{/partner_url}}
+                     {{^partner_url}}
+                     <div class="col-md-5 text-center">
+                        <img src="{{{pluginlink}}}/pix/newsite/Icon_Partner.jpeg" class="edureka-img" alt="..."
+                           style="">
+                     </div>
+                     {{/partner_url}}
+                  </div>
+               </div>
+            </div>
+            {{/partner_details}}
+            <div class="tab-pane fade" id="Mentorship" role="tabpanel" aria-labelledby="mentornship">
+               <div class="col-md-12">
+                  <div class="row">
+                     <div class="col-md-6">
+                        <h3>Shareable on:</h3>
+                        <p>You can share your Course Certificates in the Certifications section of your LinkedIn
+                           profile, on printed resumes, CVs, or other documents.</p>
+                     </div>
+                     <!--
+                        {{#product_certificate}}
+                           <div class="col-md-6">
+                              <img src="{{{product_certificate}}}" class="certificate-img" alt="..." style="">
+                           </div>
+                           {{/product_certificate}}
+                           {{^product_certificate}}
+                           <div class="col-md-6">
+                              <img src="{{{pluginlink}}}/pix/newsite/Certificate 2_11 Mar.jpg" class="certificate-img"
+                                 alt="..." style="">
+                           </div>
+                        {{/product_certificate}}
+                     -->
+                  </div>
+               </div>
+            </div>
+            <div class="tab-pane fade" id="collegecn" role="tabpanel" aria-labelledby="collegeconnect">
+               <h3>Our Other Content Partners</h3>
+               <div class="col-md-12">
+                  <div class="row cp-imgs">
+                     <div class="col-md-4">
+                        <img src="{{{pluginlink}}}/pix/newsite/Logo_AWS.jpg" class="" alt="..." style="">
+                     </div>
+                     <div class="col-md-4">
+                        <img src="{{{pluginlink}}}/pix/newsite/Logo_Micro Focus.jpg" class="" alt="..." style="">
+                     </div>
+                     <div class="col-md-4">
+                        <img src="{{{pluginlink}}}/pix/newsite/Logo_Hitachi.jpg" class="" alt="..." style="">
+                     </div>
+                     <div class="col-md-4" style="margin-top: 20px;">
+                        <img src="{{{pluginlink}}}/pix/newsite/Logo_Brickfields Asia College.jpg" class="" alt="..."
+                           style="">
+                     </div>
+                     <div class="col-md-4" style="margin-top: 20px;">
+                        <img src="{{{pluginlink}}}/pix/newsite/Logo_Packt.jpg" class="" alt="..." style="">
+                     </div>
+                     <div class="col-md-4" style="margin-top: 20px;">
+                        <img src="{{{pluginlink}}}/pix/newsite/Logo_IBM.jpg" class="" alt="..." style="">
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="tab-pane fade" id="certifpartner" role="tabpanel" aria-labelledby="collegecertpartner">
+               <h3>Our Certification Partner</h3>
+               <div class="col-md-12">
+                  <div class="row cp-imgs">
+                     <div class="col-md-4">
+                        <!--<img src="{{{pluginlink}}}/pix/newsite/Logo_AWS.jpg" class="" alt="..." style="">-->
+                        <img src="{{certurl}}" class="certlogo" alt="..." style="">
+                     </div>
+                  </div>
+               </div>
+            </div>
+         </div>
+      </div>
+   </div>
+   {{/en_section4}}
+</div>
+<div class="modal fade" id="apply_offline_course_modal" role="dialog" style="display: none;">
+<div class="modal-dialog">                
+  <!-- Modal content-->
+  <div class="modal-content applypop">
+    <div class="modal-header">
+      <button type="button" class="close" data-dismiss="modal">×</button>
+      <h4 class="modal-title">Apply Course</h4>
+    </div>
+    <div class="modal-body">
+      <div class="form-group row otherType">
+        <!--<div class="col-sm-12 required">
+          Do you really want to re-apply for this course ?  
+        </div>-->
+        <div class="col-sm-3 required" id="btchcontains10">
+            <label class="col-form-label">Batch : </label>
+            <a class="btn btn-link pull-right" role="button" data-container="body" data-toggle="popover" data-placement="right" data-content="<div class=&quot;no-overflow&quot;><p>Edit [[feedbackinfo]]</p></div> " data-html="true" tabindex="0" data-trigger="focus" data-original-title="" title=""></a>
+         </div>
+         <div class="col-sm-6" id="btchcontains11">
+            <select class="form-control" id="batchs5" placeholder="Select Batch">
+            <option value="0" selected="" disabled>Select Batch</option>
+           <option value="1">Any Batch</option>
+            </select>
+            <span class="bcode_online_error" style="color: red; display: none;">Select atleast 1 option to continue.</span>
+         </div>
+         <input type="hidden" class="centerid" id="centerid" value="">
+          <input type="hidden" class="apply_offline_product_id" id="apply_offline_product_id" name="apply_offline_product_id" value="">
+        </div>
+    </div>
+    <div class="modal-footer">
+      <button id="apply_course" class="btn btn-primary apply_course" name="submit">Submit</button>
+      <button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+    </div>
+  </div>                  
+</div>
+</div>
+</div>
+{{^isloggedin}}
+<input type="hidden" id="summary3" value="{{{summary3}}}" class="{{{summary3}}}">
+</div>
+{{/isloggedin}}
+</div>
+</div>
+</div>
+<!-- <div class="col-sm-12 text-center mobile-view">
+   <a href="{{site_url}}/registration"><span class="custom-nav-btn">Try it Now</span></a>
+</div> -->
+</div>
+</div>
+{{! New Mobile UI }}
+<div class="mobile-view-student">
+</div>
+</div>
+
+
+<style>
+   /* .pass_show{position: relative}  */
+
+   .show_pwd .pwd_txt {
+      position: absolute;
+      top: 30% !important;
+      right: 35px;
+      z-index: 1;
+      color: #00b85b;
+      cursor: pointer;
+      transition: .3s ease all;
+   }
+
+   .show_pwd .pwd_txt:hover {
+      color: #333333;
+   }
+
+   .site-menubar-fold .page,
+   .site-menubar-fold .site-footer {
+      margin-left: 0px;
+   }
+
+   #fade {
+      display: none;
+      position: fixed;
+      top: 0%;
+      left: 0%;
+      width: 100%;
+      height: 100%;
+      background-color: black;
+      z-index: 1001;
+      -moz-opacity: 0.8;
+      opacity: .80;
+      filter: alpha(opacity=80);
+   }
+
+   #light {
+      display: none;
+      /* transform: translate(-50%, -74%); */
+      position: absolute;
+      left: 50%;
+      border: 2px solid #FFF;
+      background: #FFF;
+      z-index: 1002;
+      overflow: visible;
+      margin-top: -243px;
+      /* margin-top: -24%; */
+   }
+
+   #exampleModalLabel{
+    margin-left: 0px !important;
+}
+
+   #boxclose {
+      float: right;
+      cursor: pointer;
+      color: #fff;
+      border: 1px solid #AEAEAE;
+      border-radius: 3px;
+      background: #222222;
+      font-size: 31px;
+      font-weight: bold;
+      display: inline-block;
+      line-height: 0px;
+      padding: 11px 3px;
+      position: absolute;
+      right: 2px;
+      top: 2px;
+      z-index: 1002;
+      opacity: 0.9;
+   }
+
+   .boxclose:before {
+      content: "×";
+   }
+
+   #fade:hover~#boxclose {
+      display: none;
+   }
+
+   .test:hover~.test2 {
+      display: none;
+   }
+
+   #more {
+      display: none;
+   }
+
+   .course-content-block p,
+   .course-content-block span {
+      color: #000 !important;
+      padding: 0 !important;
+   }
+
+   .course-content-block ul {
+      margin-bottom: 0 !important;
+   }
+
+   .course-product-name {
+      width: 70%;
+   }
+
+   #certifpartner h3 {
+      margin:25px 0px 30px 0px;
+      color:#fff !important;
+   }
+
+   .certlogo {
+      width:400px !important;
+      height:400px important;
+   }
+
+   @media only screen and (max-width: 768px) {
+      .course-product-name {
+         width: 100%;
+      }
+   }
+
+   .checked {
+      color: orange;
+   }
+
+   .cfull {
+      letter-spacing: 1.75px;
+      text-transform: uppercase;
+      color: #FFF;
+      font-weight: 600;
+      font-size: 18px;
+      padding: 14px 60.5px;
+      border-radius: 3px;
+      background-color: #f5a623;
+      cursor: pointer;
+      display: block;
+   }
+
+   /* css by Astha */
+
+   @media only screen and (max-width: 767px){
+      body#page-local-marketplaceroot-product_details .modal-content{
+         width: 300px !important;
+         margin-left: 20px !important;
+      }
+
+      body#page-local-marketplaceroot-product_details .modal-header{
+         font-size: 16px !important;
+         padding: 0px 20px !important;
+      } 
+
+      body#page-local-marketplaceroot-product_details button#aply_course_offline{
+         font-size: 12px;
+         text-align: center;
+         padding: 5px 13px;
+         border-radius: 2px;
+         margin-left: 33px !important;
+      }
+   }
+
+   @media (min-width: 768px) and (max-width: 999px) {
+      .course-product-name {
+         width: 100%;
+      }
+
+      body#page-local-marketplaceroot-product_details .modal-content{
+         width: 405px!important;
+         margin-left: -52px!important;
+      }
+
+      body#page-local-marketplaceroot-product_details .modal-header{
+         font-size: 16px !important;
+         padding: 0px 20px !important;
+      } 
+
+      body#page-local-marketplaceroot-product_details button#aply_course_offline{
+         font-size: 12px;
+         text-align: center;
+         padding: 5px 13px;
+         border-radius: 2px;
+         margin-left: 33px !important;
+      }
+   }
+
+   .applypop {
+      width:700px !important; 
+      margin-left:-300px !important;
+   }
+
+   .pgehilight, .fpgehilite, .lpgehilite {
+      color:#FF0000 !important;
+   }
+
+   @media only screen and (max-width: 800px) {
+      body#page-local-schememanagement-product_details .table tr {
+         display: revert;
+         height: auto;
+      }
+   }
+   @media only screen and (max-width: 480px) {
+      body#page-local-schememanagement-product_details .carousal-banner {
+         height: 45% !important;
+      }
+      body#page-local-schememanagement-product_details #center_table_length {
+         text-align: left;
+      }
+      body#page-local-schememanagement-product_details #center_table_filter {
+         text-align: left;
+      }
+   }
+</style>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/2.0.2/anime.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/owl-carousel/1.3.3/owl.carousel.min.js"></script>
+<script>
+   $(document).ready(function () {
+      $(".hostdesc").text(function (index, currentText) {
+         if (currentText) {
+            return currentText.substr(0, 140) + '...';
+         }
+      });
+   });
+   $('.owl-carousel').owlCarousel({
+      loop: false,
+      margin: 20,
+      nav: true,
+      responsive: {
+         0: {
+            items: 1
+         },
+         600: {
+            items: 4
+         },
+         1000: {
+            items: 4
+         }
+      }
+   });
+
+   $(document).ready(function () {
+      $('.show_pwd').append('<span class="pwd_txt"><i class="fa fa-eye-slash fa-sm" aria-hidden="true"></i></span>');
+   });
+
+   $(document).on('click', '.show_pwd .pwd_txt', function () {
+      var pass = $(".pswd");
+      var fieldtype = pass.attr('type');
+      if (fieldtype == 'password') {
+         pass.attr('type', 'text');
+         $(this).text(" ");// hide
+         $(this).append('<i class="fa fa-eye fa-sm" aria-hidden="true"></i>');
+      } else {
+         pass.attr('type', 'password');
+         $(this).text(" ");
+         $(this).append('<i class="fa fa-eye-slash fa-sm" aria-hidden="true"></i>');
+      }
+   });
+
+   $('.moreless-button').click(function () {
+      $('.moretext').slideToggle();
+      if ($('.moreless-button').text() == "Read more") {
+         $(this).text("Read less");
+         $('.dot').hide();
+      } else {
+         $(this).text("Read more");
+         $('.dot').show();
+      }
+   });
+
+   $('.moreless-button1').click(function () {
+      $('.moretext1').slideToggle();
+      if ($('.moreless-button1').text() == "Read more") {
+         $(this).text("Read less");
+         $('.dot1').hide();
+      } else {
+         $(this).text("Read more");
+         $('.dot1').show();
+      }
+   });
+
+   {{! $('.moreless-button2').click(function () {
+      $('.moretext2').slideToggle();
+      if ($('.moreless-button2').text() == "Read more") {
+         $(this).text("Read less");
+         $('.dot2').hide();
+      } else {
+         $(this).text("Read more");
+         $('.dot2').show();
+
+      }
+   }); }}
+   $('.moreless-button3').click(function () {
+      $('.moretext3').slideToggle();
+      if ($('.moreless-button3').text() == "Read more") {
+         $(this).text("Read less");
+         $('.dot3').hide();
+         $('#dot3').hide();
+      } else {
+         $(this).text("Read more");
+         $('.dot3').show();
+      }
+   });
+
+   function myFunction() {
+      var dots = document.getElementById("dots");
+      var moreText = document.getElementById("more");
+      var btnText = document.getElementById("myBtn");
+
+      if (dots.style.display === "none") {
+         dots.style.display = "inline";
+         btnText.innerHTML = "Read more";
+         moreText.style.display = "none";
+      } else {
+         dots.style.display = "none";
+         btnText.innerHTML = "Read less";
+         moreText.style.display = "inline";
+      }
+   }
+
+   $(document).ready(function () {
+      $('body').on('click', '#emi_list', function (e) {
+         var pid = $(this).attr('product_id');
+         $.ajax({
+            url: M.cfg.wwwroot + "/local/marketplaceroot/newdesign/emi_company.php",
+            type: "GET",
+            data: {
+               productid: pid,
+            },
+            success: function (response) {
+
+               var responses = $.parseJSON(response);
+               var companyname = responses.companyname;
+               var companyid = responses.companyid;
+               var tempid = [];
+               var tempcompany = [];
+               for (i = 0; i < companyname.length; i++) {
+                  var tempcompany = companyname[i];
+                  var tempid = companyid[i];
+                  $(".emi_partner").append("<div class='company_list'><input type=\"checkbox\" id = \"company_check\" value = " + tempid + ">&nbsp;&nbsp;" + tempcompany + "</div>");
+               }
+               $("#emiModal").modal('show');
+
+            }
+         });
+
+         //opoup
+
+      });
+
+      //more less button
+
+   });
+</script>
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
