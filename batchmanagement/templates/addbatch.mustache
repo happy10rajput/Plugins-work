@@ -1,0 +1,80 @@
+<div class="bg-white p-30 mt-15 add-batch-college" style="position:relative">
+    <div class="overlay-bg-internpost"></div>
+    <form id="form" class="" style="margin: 20px auto 0;width: 60%;">
+        <div class="form-group row otherType">
+            <div class="col-sm-12 col-md-3 required">
+                <label class="col-form-label">{{#str}}programme, local_batchmanagement{{/str}}</label>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <select class="form-control" id="programme" name="programme" >
+                    <option disabled="" value="" selected>Select Programme</option>
+                    {{#student_programme}}
+                    <option value="{{id}}">{{fullname}}</option>
+                    {{/student_programme}}
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row otherType">
+            <div class="col-sm-12 col-md-3 required">
+                <label class="col-form-label">{{#str}}stream, local_batchmanagement{{/str}}</label>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <select class="form-control" id="stream" name="stream" >
+                    <option disabled="" value="" selected>Select Stream</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row otherType">
+            <div class="col-sm-12 col-md-3 required">
+                <label class="col-form-label">{{#str}}semester, local_batchmanagement{{/str}}</label>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <select class="form-control" id="semester" name="semester" >
+                    <option disabled="" value="" selected>Select Semester</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row otherType">
+            <div class="col-sm-12 col-md-3 required">
+                <label class="col-form-label">{{#str}}semesteryear, local_batchmanagement{{/str}}</label>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <select class="form-control" id="semesteryear" name="semesteryear" >
+                    <option disabled="" value="" selected>Select Semester Year</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="form-group row otherType">
+            <div class="col-sm-12 col-md-3 required">
+                <label class="col-form-label">{{#str}}batchname, local_batchmanagement{{/str}}</label>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <input type="text" class="form-control" id="batchname" name="batchname" >
+            </div>
+        </div>
+
+        <div class="form-group row otherType">
+            <div class="col-sm-12 col-md-3">
+                <label class="col-form-label">{{#str}}batchcode, local_batchmanagement{{/str}}</label>
+            </div>
+            <div class="col-sm-12 col-md-9">
+                <input type="text" class="form-control" id="batchcode" name="batchcode" value="BA{{batchcode}}" placeholder="BA{{batchcode}}" readonly>
+            </div>
+        </div>
+
+        <div class="form-group row">
+            <div class="col-sm-12 text-right">
+                <input type="submit" class="btn btn-primary add" name="submit" value="Submit">
+            </div>
+        </div>
+    </form>
+</div>
+<style>
+    .form-group .required .col-form-label:after {
+        content:"*";color:red;
+    }
+</style>

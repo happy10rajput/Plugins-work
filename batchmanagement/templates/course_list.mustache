@@ -1,0 +1,37 @@
+<div>
+    <button class="mb-20" style="border-radius: 50px;padding: .429rem 1rem;color: #526069;background-color: transparent;border: 1px solid #9f9f9f;"> Courses Count <span style="border-radius: 50px;
+        background: #9f9f9f;
+        padding: 3px 8px;
+        text-align: center;
+        color: #fff;">{{course_count}}</span> </button>
+    <a href="{{url}}" style="float:right;"><div class="ml-20">
+    <input type="submit" class="btn-primary" value="Back to Batch list page" id="search">
+    </div></a>
+</div>
+
+<table class="generaltable" id="b_coursedata">
+    <thead>
+        <tr>
+            <th scope="col">Sl No.</th>
+            <th scope="col">Course Category</th>
+            <th scope="col">Course Code</th>
+            <th scope="col">Course Name</th>
+            <th scope="col">Mapped On</th>
+            <th scope="col">Mapped By</th>
+            <th scope="col">Visibility</th>
+        </tr>
+    </thead>
+    <tbody>
+        {{#course_data}}
+        <tr>
+            <td>{{i}}</td>
+            <td>{{course_category}}</td>
+            <td>{{course_code}}</td>
+            <td>{{course_name}}</td>
+            <td>{{course_mapped_on}}</td>
+            <td>{{course_mapped_by}}</td>
+            <td>{{visibility}}</td>
+        </tr>
+        {{/course_data}}
+    </tbody>
+</table>

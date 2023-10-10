@@ -1,0 +1,4 @@
+body#page-local-batchmanagement-index.swal2-height-auto,
+body#page-local-batchmanagement-assignuser.swal2-height-auto {
+    height: inherit !important;
+}

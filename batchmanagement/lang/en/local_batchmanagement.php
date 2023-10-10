@@ -1,0 +1,36 @@
+<?php
+$string["pluginname"] = "Batch Management";
+$string["plugin"] = "Batch Management";
+$string["addbatch"] = "Add Batch";
+$string["programme"] = "Programme";
+$string["stream"] = "Stream";
+$string["semester"] = "Semester";
+$string["semesteryear"] = "Sem Year";
+$string["programmeHelp"] = "Select Programme";
+$string["streamHelp"] = "Select Stream";
+$string["semesterHelp"] = "Select Semester";
+$string["semesteryearHelp"] = "Select Semester Year";
+$string["Helpwithsemesteryear"] = "Help With Semester Year";
+$string["Helpwithsemester"] = "Help With Semester";
+$string["Helpwithstream"] = "Help With Stream";
+$string["Helpwithprogramme"] = "Help With Programme";
+$string["Helpwithbatchname"] = "Help With Batch Name";
+$string["batchnameHelp"] = "Enter Batch Name";
+$string["batchname"] = "Batch Name";
+$string["batchcode"] = "Batch code";
+$string["assignbatch"] = "Add Students To Batch";
+$string["batch"] = "Batch";
+
+$string["batchHelp"] = "Select Batch";
+$string["Helpwithbatch"] = "Help With Batch";
+$string["batchlist"] = "List of Batches";
+$string["batch_list"] = "Batch List";
+$string['batchcode'] = "Batch Code";
+$string['batchcodehelp']="Select Batche Code";
+$string['batchmigration']= 'BATCH & STUDENT MIGRATION';
+$string['deletecatinfo'] = 'Deleting  Users from the Batch. This action cannot be reverted. Are you sure?';
+$string['deleteconfirm']= 'Yes, Delete';
+$string['sno']='Sl. No.';
+$string['action'] = 'Action';
+$string['courses'] = 'Courses';
+$string['users'] = 'Users';
